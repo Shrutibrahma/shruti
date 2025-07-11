@@ -8,7 +8,7 @@ const Newsletter = () => {
       title: "ASEE Conference Presentation",
       date: "March 22, 2025",
       location: "American Society for Engineering Education",
-      image: "/api/placeholder/400/300",
+      image: "ase.jpg",
       description: "I presented my research work on 'Predicting Student Enrollment: A Machine Learning Approach to Higher Education Trends' at the prestigious American Society for Engineering Education annual conference. The presentation showcased our scalable ML framework that analyzes demographic and socio-economic data to forecast enrollment patterns globally. It was an incredible opportunity to share insights with fellow educators and researchers in the engineering education community.",
       tags: ["Research", "ML", "Education", "Conference"],
       icon: <Users className="h-5 w-5 text-blue-600" />
@@ -17,17 +17,17 @@ const Newsletter = () => {
       title: "Graduate Student Showcase",
       date: "April 2, 2025",
       location: "University Research Fair",
-      image: "/hnh.jpg",
+      image: "/gs.jpg",
       description: "Showcased my 'Smart Router with AI Threat Detection' project at the annual Graduate Student Research Showcase. The demonstration highlighted how our AI-powered router analyzes network packets in real-time to detect and flag SYN DoS attacks using a combination of machine learning algorithms and rule-based logic. The project received excellent feedback from faculty and industry professionals for its practical cybersecurity applications.",
       tags: ["Cybersecurity", "AI", "Networking", "Showcase"],
       icon: <Award className="h-5 w-5 text-purple-600" />
     },
     {
-      title: "Tech Innovation Hackathon",
-      date: "January 15, 2025",
-      location: "Silicon Valley Tech Hub",
-      image: "/api/placeholder/400/300",
-      description: "Participated in a 48-hour intensive hackathon focused on developing innovative solutions for real-world problems. Our team built an AI-powered accessibility app that helps visually impaired users navigate indoor spaces using smartphone sensors and computer vision. We secured second place among 150+ teams and received recognition for our creative approach to assistive technology development.",
+      title: "Hack New Haven Hackathon",
+      date: "March 23, 2025",
+      location: "University of New Haven",
+      image: "hnh.jpg",
+      description: "Participated in a 48-hour intensive hackathon focused on developing innovative solutions for real-world problems. Our team built an AI-powered accessibility app that helps users navigate to nearby  indoor spaces using smartphone sensors and computer vision.",
       tags: ["Hackathon", "AI", "Accessibility", "Innovation"],
       icon: <Award className="h-5 w-5 text-green-600" />
     },
@@ -35,7 +35,7 @@ const Newsletter = () => {
       title: "AI Hartford Day at UConn Business School",
       date: "April 23, 2025",
       location: "University of Connecticut School of Business",
-      image: "/api/placeholder/400/300",
+      image: "ha.jpg",
       description: "Participated in the inaugural CAIA Research Symposium at the 4th annual AI Day in Hartford, representing University of New Haven Data Science students. This prestigious event brought together leading researchers, industry professionals, and students to showcase cutting-edge AI research and innovations. It was an honor to present our data science work alongside peers and engage with the broader Connecticut AI community.",
       tags: ["AI", "Research", "Data Science", "Symposium"],
       icon: <Brain className="h-5 w-5 text-indigo-600" />
@@ -93,16 +93,7 @@ const Newsletter = () => {
         ))}
       </div>
 
-      <div className="mt-16 text-center">
-        <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl p-8 border border-gray-200">
-          <h3 className="text-2xl font-semibold text-gray-800 mb-4">More Updates Coming Soon!</h3>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            I'm always working on exciting new projects and research initiatives. 
-            Stay tuned for upcoming conference presentations, publications, and breakthrough discoveries 
-            in AI, machine learning, and cybersecurity.
-          </p>
-        </div>
-      </div>
+      
     </section>
   );
 };
