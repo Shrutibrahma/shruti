@@ -1,78 +1,63 @@
-
-import { User, Calendar, Briefcase, GraduationCap } from 'lucide-react';
-import { Card, CardContent } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
 
 const About = () => {
-  const currentRoles = [
-    { 
-      icon: <GraduationCap className="h-5 w-5 text-purple" />,
-      title: "Provost -  MS Data Science Student",
-      period: "2024 - 2026"
-    },
-    { 
-      icon: <Briefcase className="h-5 w-5 text-purple" />,
-      title: "Research Assistant",
-      details: "AI, Education Analytics & Cybersecurity"
-    },
-    { 
-      icon: <User className="h-5 w-5 text-purple" />,
-      title: "AI Trainer and Mentor",
-      details: "Machine Learning & Computer Vision"
-    }
-  ];
-
   return (
-    <section id="about" className="section-container">
-      <h2 className="section-heading">About Me</h2>
-      
-      <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 mt-12">
-        <div className="lg:col-span-3">
-          <p className="text-lg mb-6">
-            I'm a Data Science graduate student with a passion for building impactful AI solutions—from lung cancer 
-            detection models and smart routers to assistive AR/VR systems for visually impaired individuals. 
-          </p>
-          <p className="text-lg mb-6">
-            My work blends technical rigor with real-world empathy. I believe data and technology, 
-            when designed thoughtfully, can empower every facet of life.
-          </p>
+    <section id="about" className="min-h-screen flex items-center justify-center py-20 px-6 bg-black">
+      <div className="max-w-6xl w-full mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 items-center">
 
-          <div className="mt-8">
-            <h3 className="text-xl font-semibold mb-4">Current Roles</h3>
-            <div className="space-y-4">
-              {currentRoles.map((role, index) => (
-                <div key={index} className="flex items-start">
-                  <div className="mr-3 mt-1">{role.icon}</div>
-                  <div>
-                    <h4 className="font-medium">{role.title}</h4>
-                    <p className="text-sm text-muted-foreground">
-                      {role.period || role.details}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
+        {/* Left Column: Text Content */}
+        <div className="space-y-8 order-2 md:order-1">
+          <div className="space-y-2">
+            <h4 className="text-blue-500 font-medium tracking-wide text-lg">Hello, I'm</h4>
+            <h1 className="text-5xl md:text-7xl font-bold text-white tracking-tight">
+              Shruti <br /> Brahma
+            </h1>
+            <h2 className="text-2xl md:text-3xl text-gray-400 font-medium mt-2">
+              Data Science | AI | Research
+            </h2>
+          </div>
+
+          <div className="space-y-6 text-gray-400 text-lg leading-relaxed max-w-lg">
+            <p>
+              I'm a Data Science graduate student with a passion for building impactful AI solutions—from lung cancer
+              detection models and smart routers to assistive AR/VR systems for visually impaired individuals.
+            </p>
+            <p>
+              My work blends technical rigor with real-world empathy. I believe data and technology,
+              when designed thoughtfully, can empower every facet of life.
+            </p>
+          </div>
+
+          <div className="flex flex-wrap gap-4 pt-4">
+            <Button
+              className="rounded-full bg-white text-black hover:bg-gray-200 px-8 py-6 text-base font-semibold transition-all duration-300"
+              onClick={() => window.open('/Shruti-Resume.pdf', '_blank')}
+            >
+              Download Resume
+            </Button>
+            <Button
+              variant="outline"
+              className="rounded-full border-gray-700 text-white hover:bg-white/10 hover:text-white hover:border-white px-8 py-6 text-base font-medium transition-all duration-300 bg-transparent"
+              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            >
+              Contact Me
+            </Button>
           </div>
         </div>
-        
-        <div className="lg:col-span-2">
-        <div className="lg:col-span-2">
-  <Card className="bg-secondary/50 border-none overflow-hidden">
-    <CardContent className="p-6">
-      <div className="aspect-square rounded-lg overflow-hidden">
-        <img
-          src="/myphoto.jpg" // replace with your image name
-          alt="Shruti Brahma"
-          className="w-full h-full object-cover"
-        />
-      </div>
-      <div className="mt-4 text-center">
-        <h3 className="font-medium">Shruti Brahma</h3>
-        <p className="text-xs text-muted-foreground">Data Science | AI | Research</p>
-      </div>
-    </CardContent>
-  </Card>
-</div>
-</div>
+
+        {/* Right Column: Circular Image */}
+        <div className="relative order-1 md:order-2 flex justify-center md:justify-end">
+          {/* Glow Effect */}
+          <div className="absolute inset-0 bg-purple-900/20 blur-[100px] rounded-full scale-150 pointer-events-none" />
+
+          <div className="relative w-64 h-64 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-gray-900 shadow-2xl z-10">
+            <img
+              src="/myphoto.jpg"
+              alt="Shruti Brahma"
+              className="w-full h-full object-cover"
+            />
+          </div>
+        </div>
 
       </div>
     </section>

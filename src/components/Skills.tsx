@@ -60,7 +60,7 @@ const Skills = () => {
   ];
 
   return (
-    <section id="skills" className="py-24 px-4 bg-gradient-to-b from-white to-gray-50 dark:from-background dark:to-muted/20">
+    <section id="skills" className="py-24 px-4 bg-black">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16 space-y-4">
           <h2 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">

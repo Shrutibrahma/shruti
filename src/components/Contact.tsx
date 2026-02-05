@@ -28,7 +28,7 @@ const Contact = () => {
   return (
     <section id="contact" className="py-24 relative overflow-hidden">
       {/* Background Decor */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-purple-50/50 dark:to-purple-950/20 pointer-events-none" />
+      {/* Background Decor Removed */}
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
