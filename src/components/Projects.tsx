@@ -1,6 +1,6 @@
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { Microscope, Wifi, Eye, Brain, School, Car, Construction } from 'lucide-react';
+import { Microscope, Wifi, Eye, Brain, School, Car, Construction, Newspaper, Image, User } from 'lucide-react';
 
 const Projects = () => {
   const projects = [
@@ -39,6 +39,24 @@ const Projects = () => {
       icon: <Construction className="h-10 w-10 text-purple-600" />,
       description: "RVT-based model for detecting building cracks from images with Grad-CAM visualizations deployed on a remote server.",
       tags: ["Vision Transformers", "Grad-CAM", "Deployment", "Civil Engineering"]
+    },
+    {
+      title: "Fake News Detector",
+      icon: <Newspaper className="h-10 w-10 text-purple-600" />,
+      description: "Machine Learning model to identify and classify fake news articles with high accuracy.",
+      tags: ["Python", "ML", "NLP", "Scikit-learn"]
+    },
+    {
+      title: "Image Captioning",
+      icon: <Image className="h-10 w-10 text-purple-600" />,
+      description: "Deep Learning model using CNN encoder and Transformer decoder to generate descriptive captions for images.",
+      tags: ["Python", "PyTorch", "CNN", "Transformer"]
+    },
+    {
+      title: "GAN Face Generation",
+      icon: <User className="h-10 w-10 text-purple-600" />,
+      description: "Generative Adversarial Network architecture trained to generate realistic human faces from random noise.",
+      tags: ["Python", "TensorFlow/Keras", "GAN", "Deep Learning"]
     }
   ];
 

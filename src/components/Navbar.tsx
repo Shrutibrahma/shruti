@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import { ModeToggle } from './mode-toggle';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  
+
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 10) {
@@ -13,7 +14,7 @@ const Navbar = () => {
         setScrolled(false);
       }
     };
-    
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -30,7 +31,7 @@ const Navbar = () => {
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-background/95 backdrop-blur-sm shadow-md py-2' : 'bg-transparent py-4'}`}>
       <div className="container mx-auto flex items-center justify-between px-4">
-      
+
         <a href="#" className="font-bold text-xl text-purple-500 tracking-widest">
           SH_RU_TI
         </a>
@@ -38,18 +39,19 @@ const Navbar = () => {
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center space-x-6">
           {navItems.map((item) => (
-            <a 
+            <a
               key={item.name}
               href={item.href}
               className="text-sm font-medium transition-colors hover:text-purple">
               {item.name}
             </a>
           ))}
+          <ModeToggle />
         </div>
 
         {/* Mobile menu button */}
-        <button 
-          onClick={() => setIsOpen(!isOpen)} 
+        <button
+          onClick={() => setIsOpen(!isOpen)}
           className="md:hidden focus:outline-none"
           aria-label="Toggle menu">
           {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -69,6 +71,9 @@ const Navbar = () => {
                 {item.name}
               </a>
             ))}
+            <div className="pt-2">
+              <ModeToggle />
+            </div>
           </div>
         </div>
       )}
