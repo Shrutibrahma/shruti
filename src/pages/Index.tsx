@@ -4,7 +4,6 @@ import Hero from '@/components/Hero';
 import About from '@/components/About';
 import Timeline from '@/components/Timeline';
 import Projects from '@/components/Projects';
-import Research from '@/components/Research';
 import Publications from '@/components/Publications';
 import Skills from '@/components/Skills';
 import Achievements from '@/components/Achievements';
@@ -23,7 +22,7 @@ const Index = () => {
       <About />
       <Timeline />
       <Projects />
-      <Research />
+      <Projects />
       <Publications />
       <Skills />
       <Achievements />

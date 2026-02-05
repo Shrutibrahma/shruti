@@ -1,8 +1,7 @@
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { Card, CardContent } from '@/components/ui/card';
-import { Mail, Github, Linkedin, Globe, MapPin, Phone } from 'lucide-react';
+import { Mail, Github, Linkedin, Send } from 'lucide-react';
 
 const Contact = () => {
   const contactInfo = [
@@ -16,142 +15,118 @@ const Contact = () => {
       icon: <Github className="h-5 w-5" />,
       label: "GitHub",
       value: "github.com/shrutibrahma1",
-      link: "https://github.com/shrutibrahma"
+      link: "https://github.com/shrutibrahma1"
     },
     {
       icon: <Linkedin className="h-5 w-5" />,
       label: "LinkedIn",
       value: "linkedin.com/in/shrutibrahma",
-      link: "https://linkedin.com/in/shrutibrahma1"
-    },
-    {
-      icon: <Globe className="h-5 w-5" />,
-      label: "Portfolio",
-      value: "shrutibrahma.dev",
-      link: "#"
+      link: "https://linkedin.com/in/shrutibrahma"
     }
   ];
 
   return (
-    <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-50 to-gray-100 dark:from-slate-900 dark:to-gray-900">
-      <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            Let's Work Together
-          </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            Ready to bring your next project to life? I'd love to hear about your ideas and discuss how we can collaborate.
-          </p>
-        </div>
+    <section id="contact" className="py-24 relative overflow-hidden">
+      {/* Background Decor */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-purple-50/50 dark:to-purple-950/20 pointer-events-none" />
 
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
-          {/* Contact Form */}
-          <div className="lg:col-span-3">
-            <Card className="shadow-xl border-0 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm">
-              <CardContent className="p-8">
-                <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-2">
-                  Send a Message
-                </h3>
-                <p className="text-gray-600 dark:text-gray-400 mb-8">
-                  Fill out the form below and I'll get back to you within 24 hours.
-                </p>
-                
-                <div className="space-y-6">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <div className="space-y-2">
-                      <label htmlFor="name" className="text-sm font-semibold text-gray-700 dark:text-gray-300">
-                        Full Name *
-                      </label>
-                      <Input 
-                        id="name" 
-                        placeholder="John Doe" 
-                        className="h-12 bg-white dark:bg-gray-700 border-gray-200 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-400"
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <label htmlFor="email" className="text-sm font-semibold text-gray-700 dark:text-gray-300">
-                        Email Address *
-                      </label>
-                      <Input 
-                        id="email" 
-                        type="email" 
-                        placeholder="john@example.com" 
-                        className="h-12 bg-white dark:bg-gray-700 border-gray-200 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-400"
-                      />
-                    </div>
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+
+          {/* Left Column: Info */}
+          <div className="space-y-8">
+            <div className="space-y-4">
+              <h2 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-400">
+                Let's Work Together
+              </h2>
+              <p className="text-lg text-muted-foreground leading-relaxed max-w-md">
+                Have a project in mind or want to discuss the latest in AI? I'm always open to new opportunities and collaborations.
+              </p>
+            </div>
+
+            <div className="space-y-6">
+              {contactInfo.map((info, idx) => (
+                <a
+                  key={idx}
+                  href={info.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center group p-4 rounded-xl bg-white/50 dark:bg-card/50 border border-transparent hover:border-purple-500/20 hover:shadow-lg transition-all duration-300"
+                >
+                  <div className="h-12 w-12 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center text-purple-600 dark:text-purple-400 group-hover:scale-110 transition-transform duration-300">
+                    {info.icon}
                   </div>
-                  
-                  <div className="space-y-2">
-                    <label htmlFor="subject" className="text-sm font-semibold text-gray-700 dark:text-gray-300">
-                      Subject *
-                    </label>
-                    <Input 
-                      id="subject" 
-                      placeholder="Project Inquiry" 
-                      className="h-12 bg-white dark:bg-gray-700 border-gray-200 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-400"
-                    />
+                  <div className="ml-4">
+                    <p className="text-sm font-medium text-muted-foreground uppercase tracking-wider text-xs">
+                      {info.label}
+                    </p>
+                    <p className="text-base font-semibold text-foreground group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
+                      {info.value}
+                    </p>
                   </div>
-                  
-                  <div className="space-y-2">
-                    <label htmlFor="message" className="text-sm font-semibold text-gray-700 dark:text-gray-300">
-                      Message *
-                    </label>
-                    <Textarea 
-                      id="message" 
-                      placeholder="Tell me about your project..." 
-                      rows={6} 
-                      className="bg-white dark:bg-gray-700 border-gray-200 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-400 resize-none"
-                    />
-                  </div>
-                  
-                  <Button className="w-full h-12 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold transition-all duration-300 transform hover:scale-[1.02]">
-                    Send Message
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
+                </a>
+              ))}
+            </div>
           </div>
 
-          {/* Contact Info & CTA */}
-          <div className="lg:col-span-2 space-y-8">
-            {/* Contact Information */}
-            <Card className="shadow-xl border-0 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm">
-              <CardContent className="p-8">
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-6">
-                  Contact Information
-                </h3>
-                
-                <div className="space-y-4">
-                  {contactInfo.map((info, idx) => (
-                    <a
-                      key={idx}
-                      href={info.link}
-                      className="flex items-center p-4 rounded-lg bg-gray-50 dark:bg-gray-700/50 hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-300 group"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <div className="h-12 w-12 rounded-lg bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center text-white mr-4 group-hover:scale-110 transition-transform duration-300">
-                        {info.icon}
-                      </div>
-                      <div>
-                        <p className="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wide">
-                          {info.label}
-                        </p>
-                        <p className="text-sm font-semibold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                          {info.value}
-                        </p>
-                      </div>
-                    </a>
-                  ))}
+          {/* Right Column: Form */}
+          <div className="bg-white/80 dark:bg-card/30 backdrop-blur-xl rounded-2xl p-8 shadow-xl border border-gray-100 dark:border-white/10">
+            <form className="space-y-6">
+              <div className="space-y-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <label htmlFor="name" className="text-sm font-medium text-foreground">
+                      Name
+                    </label>
+                    <Input
+                      id="name"
+                      placeholder="John Doe"
+                      className="bg-transparent border-gray-200 dark:border-white/10 focus:ring-purple-500 focus:border-purple-500 transition-all"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label htmlFor="email" className="text-sm font-medium text-foreground">
+                      Email
+                    </label>
+                    <Input
+                      id="email"
+                      type="email"
+                      placeholder="john@example.com"
+                      className="bg-transparent border-gray-200 dark:border-white/10 focus:ring-purple-500 focus:border-purple-500 transition-all"
+                    />
+                  </div>
                 </div>
-              </CardContent>
-            </Card>
 
-            
-        
+                <div className="space-y-2">
+                  <label htmlFor="subject" className="text-sm font-medium text-foreground">
+                    Subject
+                  </label>
+                  <Input
+                    id="subject"
+                    placeholder="Project Inquiry"
+                    className="bg-transparent border-gray-200 dark:border-white/10 focus:ring-purple-500 focus:border-purple-500 transition-all"
+                  />
+                </div>
 
-            </div>
+                <div className="space-y-2">
+                  <label htmlFor="message" className="text-sm font-medium text-foreground">
+                    Message
+                  </label>
+                  <Textarea
+                    id="message"
+                    placeholder="Tell me about your project..."
+                    className="min-h-[150px] bg-transparent border-gray-200 dark:border-white/10 focus:ring-purple-500 focus:border-purple-500 transition-all resize-none"
+                  />
+                </div>
+              </div>
+
+              <Button className="w-full h-12 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-300 rounded-xl group">
+                Send Message
+                <Send className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </form>
+          </div>
+
         </div>
       </div>
     </section>

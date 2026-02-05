@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
-import { ModeToggle } from './mode-toggle';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,16 +19,16 @@ const Navbar = () => {
   }, []);
 
   const navItems = [
+    { name: 'Home', href: '#home' },
     { name: 'About', href: '#about' },
     { name: 'Skills', href: '#skills' },
     { name: 'Projects', href: '#projects' },
-    { name: 'Research', href: '#research' },
     { name: 'Achievements', href: '#achievements' },
     { name: 'Contact', href: '#contact' },
   ];
 
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-background/95 backdrop-blur-sm shadow-md py-2' : 'bg-transparent py-4'}`}>
+    <nav className="fixed w-full z-50 transition-all duration-300 bg-black backdrop-blur-sm shadow-md py-2">
       <div className="container mx-auto flex items-center justify-between px-4">
 
         <a href="#" className="font-bold text-xl text-purple-500 tracking-widest">
@@ -46,7 +45,6 @@ const Navbar = () => {
               {item.name}
             </a>
           ))}
-          <ModeToggle />
         </div>
 
         {/* Mobile menu button */}
@@ -71,9 +69,6 @@ const Navbar = () => {
                 {item.name}
               </a>
             ))}
-            <div className="pt-2">
-              <ModeToggle />
-            </div>
           </div>
         </div>
       )}

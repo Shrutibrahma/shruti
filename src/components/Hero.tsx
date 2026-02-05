@@ -1,44 +1,90 @@
-
+import { useState, useEffect, useRef } from 'react';
 import { ArrowDown } from 'lucide-react';
-import { Button } from '@/components/ui/button';
 
 const Hero = () => {
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      if (containerRef.current) {
+        const rect = containerRef.current.getBoundingClientRect();
+        setMousePosition({
+          x: e.clientX - rect.left,
+          y: e.clientY - rect.top,
+        });
+      }
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden bg-dot-pattern">
-      <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
-      
-      <div className="container mx-auto px-4 z-10 flex flex-col items-center text-center">
-        <div className="animate-fade-in">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4">
-            Shruti Brahma
+    <section
+      id="home"
+      ref={containerRef}
+      className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden bg-black selection:bg-purple-500/30"
+    >
+      {/* Grid Background */}
+      <div
+        className="absolute inset-0 opacity-20 pointer-events-none"
+        style={{
+          backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px)',
+          backgroundSize: '50px 50px'
+        }}
+      />
+
+      <div className="z-10 relative flex flex-col items-center justify-center w-full h-full cursor-default select-none">
+
+        {/* Name Container */}
+        <div className="relative mb-6">
+          {/* Layer 1: The Outline (Glassy Effect - Always visible) */}
+          <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold text-transparent tracking-widest text-center stroke-text"
+            style={{
+              WebkitTextStroke: '2px rgba(255, 255, 255, 0.3)',
+              filter: 'drop-shadow(0 0 2px rgba(255,255,255,0.1))'
+            }}>
+            SHRUTI BRAHMA
           </h1>
-          <div className="text-gradient text-2xl md:text-3xl lg:text-4xl font-semibold mb-6">
-           Data Science & AI Engineer
-          </div>
-          <p className="text-muted-foreground max-w-2xl mx-auto text-lg mb-8">
-            Transforming lives through the fusion of creativity, AI, and impactful research.
+
+          {/* Layer 2: The Fill (Revealed by spotlight) */}
+          <h1
+            className="absolute inset-0 text-6xl md:text-8xl lg:text-9xl font-bold text-white tracking-widest text-center"
+            style={{
+              maskImage: `radial-gradient(circle 250px at ${mousePosition.x}px ${mousePosition.y}px, black, transparent)`,
+              WebkitMaskImage: `radial-gradient(circle 250px at ${mousePosition.x}px ${mousePosition.y}px, black, transparent)`
+            }}
+          >
+            SHRUTI BRAHMA
+          </h1>
+        </div>
+
+        {/* Subtitle */}
+        <div className="relative">
+          <p className="text-sm md:text-xl lg:text-2xl font-light tracking-[0.5em] text-gray-400 uppercase text-center">
+            Data Scientist & AI Researcher
+          </p>
+          <p
+            className="absolute inset-0 text-sm md:text-xl lg:text-2xl font-light tracking-[0.5em] text-purple-400 uppercase text-center"
+            style={{
+              maskImage: `radial-gradient(circle 150px at ${mousePosition.x}px ${mousePosition.y}px, black, transparent)`,
+              WebkitMaskImage: `radial-gradient(circle 150px at ${mousePosition.x}px ${mousePosition.y}px, black, transparent)`
+            }}
+          >
+            Data Scientist & AI Researcher
           </p>
         </div>
-        
-        <div className="flex flex-col sm:flex-row gap-4 animate-fade-in" style={{ animationDelay: '0.3s' }}>
-  <Button size="lg" className="gradient-bg" asChild>
-    <a href="#projects">View Projects</a>
-  </Button>
-  <Button size="lg" variant="outline" asChild>
-    <a href="#contact">Contact Me</a>
-  </Button>
-</div>
-</div>
-      
-      <div className="absolute bottom-10 animate-bounce">
-        <a href="#about" className="flex flex-col items-center text-sm text-muted-foreground">
-          <span className="mb-1">Scroll Down</span>
-          <ArrowDown className="h-4 w-4" />
+
+      </div>
+
+      {/* Scroll Indicator */}
+      <div className="absolute bottom-10 animate-bounce z-20">
+        <a href="#about" className="flex flex-col items-center text-sm text-gray-500 hover:text-white transition-colors">
+          <span className="mb-2 uppercase tracking-widest text-xs">Scroll</span>
+          <ArrowDown className="h-5 w-5" />
         </a>
       </div>
-      
-      <div className="absolute top-1/4 left-0 w-64 h-64 bg-purple/10 rounded-full filter blur-3xl"></div>
-      <div className="absolute bottom-1/3 right-0 w-80 h-80 bg-purple-light/10 rounded-full filter blur-3xl"></div>
     </section>
   );
 };
