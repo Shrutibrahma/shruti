@@ -52,7 +52,7 @@ const About = () => {
 
           <div className="relative w-64 h-64 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-gray-900 shadow-2xl z-10">
             <img
-              src="/myphoto.jpg"
+              src="/image.png"
               alt="Shruti Brahma"
               className="w-full h-full object-cover"
             />
